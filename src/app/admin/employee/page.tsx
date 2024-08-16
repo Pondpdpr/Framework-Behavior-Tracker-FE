@@ -3,11 +3,14 @@ import { sendDaily, sendReminder } from "@/api/email";
 import { deleteUser, getUser, updateUser } from "@/api/user";
 import { AddEmployeeModal } from "@/component/addEmployeeModal";
 import { DeleteEmployeeModal } from "@/component/deleteEmployeeModal";
+import { EditEmployeeModal } from "@/component/editEmployeeModal";
 import { EmailActivityStatusOption, UserDto } from "@/type/user";
+import { Create } from "@mui/icons-material";
 import {
   Button,
   Checkbox,
   FormControl,
+  IconButton,
   InputLabel,
   MenuItem,
   Paper,
@@ -122,6 +125,8 @@ export default function Page() {
   const [globalFilter, setGlobalFilter] = useState("");
   const [isCreateModalOpen, setCreateModalOpen] = useState(false);
   const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [isEditModalOpen, setEditModalOpen] = useState(false);
+  const [EditModalUser, setEditModalUser] = useState<UserDto>();
 
   const table = useReactTable({
     data: rows,
@@ -154,6 +159,11 @@ export default function Page() {
         isModalOpen={isDeleteModalOpen}
         handleCloseModal={() => setDeleteModalOpen(false)}
         onSubmit={() => onDeleteUser()}
+      />
+      <EditEmployeeModal
+        isModalOpen={isEditModalOpen}
+        handleCloseModal={() => setEditModalOpen(false)}
+        user={EditModalUser!}
       />
       <Stack direction="row" justifyContent={"space-between"}>
         <Stack direction="row" spacing={4}>
@@ -261,7 +271,7 @@ export default function Page() {
           <TableHead>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
-                <TableCell sx={{ width: "40px" }} />
+                <TableCell sx={{ width: "20px" }} />
                 {headerGroup.headers.map((header) => {
                   return (
                     <TableCell key={header.id} colSpan={header.colSpan}>
@@ -273,7 +283,8 @@ export default function Page() {
                     </TableCell>
                   );
                 })}
-                <TableCell sx={{ width: "40px" }} />
+                <TableCell sx={{ width: "20px" }} />
+                <TableCell sx={{ width: "20px" }} />
               </TableRow>
             ))}
           </TableHead>
@@ -289,6 +300,16 @@ export default function Page() {
                       <TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
                     );
                   })}
+                  <TableCell sx={{ width: "20px" }}>
+                    <IconButton
+                      onClick={() => {
+                        setEditModalOpen(true);
+                        setEditModalUser(row.original);
+                      }}
+                    >
+                      <Create />
+                    </IconButton>
+                  </TableCell>
                   <TableCell>
                     <Switch
                       checked={row.original.isActive}
