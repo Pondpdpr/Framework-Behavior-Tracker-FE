@@ -1,42 +1,50 @@
 export const MergeFieldOption = [
   {
-    value: "{{firstName}}",
     label: "First Name",
+    value: "{{firstName}}",
   },
   {
-    value: "{{lastName}}",
     label: "Last Name",
+    value: "{{lastName}}",
   },
   {
-    value: "{{thaiFirstName}}",
     label: "Thai First Name",
+    value: "{{thaiFirstName}}",
   },
   {
-    value: "{{thaiLastName}}",
     label: "Thai Last Name",
+    value: "{{thaiLastName}}",
   },
   {
-    value: "{{email}}",
     label: "Email",
+    value: "{{email}}",
   },
   {
-    value: "{{title}}",
-    label: "Title",
+    label: "Gender",
+    value: "{{gender}}",
   },
   {
-    value: "{{department}}",
-    label: "Department",
+    label: "Group",
+    value: "{{group}}",
   },
   {
-    value: "{{company}}",
-    label: "Company",
+    label: "Position",
+    value: "{{position}}",
   },
   {
-    value: "{{location}}",
+    label: "Direct superior",
+    value: "{{directSuperior}}",
+  },
+  {
     label: "Location",
+    value: "{{location}}",
   },
   {
-    value: "{{market}}",
-    label: "Market",
+    label: "Dealership",
+    value: "{{dealership}}",
+  },
+  {
+    label: "Phone",
+    value: "{{phone}}",
   },
 ];

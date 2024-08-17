@@ -1,3 +1,5 @@
+import { z } from "zod";
+
 export enum EmailActivityStatus {
   EMAIL_SENDING = "sending",
   EMAIL_DELIVERED = "delivered",
@@ -41,17 +43,23 @@ export type UserDto = {
 
   email: string;
 
-  title: string;
+  gender: string;
 
-  department: string;
+  group: string;
 
-  company: string;
+  position: string;
+
+  directSuperior: string;
 
   location: string;
 
-  market: string;
+  dealership: string;
+
+  phone: string;
 
   isActive: boolean;
+
+  isSubmitted: boolean;
 
   dailyEmailActivityStatus: EmailActivityStatus;
 
@@ -63,19 +71,93 @@ export type CreateUserDto = {
 
   lastName: string;
 
-  thaiFirstName: string;
+  thaiFirstName?: string;
 
-  thaiLastName: string;
+  thaiLastName?: string;
 
   email: string;
 
-  title: string;
+  gender?: string;
 
-  department: string;
+  group?: string;
 
-  company: string;
+  position?: string;
 
-  location: string;
+  directSuperior?: string;
 
-  market: string;
+  location?: string;
+
+  dealership?: string;
+
+  phone: string;
 };
+
+export const UserSchema = z.object({
+  firstName: z.string().min(1, { message: "Required" }),
+  lastName: z.string().min(1, { message: "Required" }),
+  thaiFirstName: z.string(),
+  thaiLastName: z.string(),
+  email: z.string().min(1, { message: "Required" }),
+  gender: z.string(),
+  group: z.string(),
+  position: z.string(),
+  directSuperior: z.string(),
+  location: z.string(),
+  dealership: z.string(),
+  phone: z.string().min(1, { message: "Required" }),
+});
+
+export const UserFields = [
+  {
+    label: "First Name",
+    value: "firstName",
+    required: true,
+  },
+  {
+    label: "Last Name",
+    value: "lastName",
+    required: true,
+  },
+  {
+    label: "Thai First Name",
+    value: "thaiFirstName",
+  },
+  {
+    label: "Thai Last Name",
+    value: "thaiLastName",
+  },
+  {
+    label: "Email",
+    value: "email",
+    required: true,
+  },
+  {
+    label: "Gender",
+    value: "gender",
+  },
+  {
+    label: "Group",
+    value: "group",
+  },
+  {
+    label: "Position",
+    value: "position",
+  },
+  {
+    label: "Direct superior",
+    value: "directSuperior",
+  },
+  {
+    label: "Dealership",
+    value: "dealership",
+  },
+  {
+    label: "Location",
+    value: "location",
+  },
+  {
+    label: "Phone",
+    value: "phone",
+    required: true,
+  },
+];

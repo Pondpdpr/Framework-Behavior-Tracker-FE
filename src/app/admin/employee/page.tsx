@@ -75,6 +75,12 @@ export default function Page() {
         enableGlobalFilter: false,
       },
       {
+        header: "Submiited",
+        accessorFn: (row) => (row.isSubmitted ? "Submitted" : "Not Submitted"),
+        footer: (props) => props.column.id,
+        enableGlobalFilter: false,
+      },
+      {
         header: "ID",
         accessorKey: "id",
         footer: (props) => props.column.id,
@@ -91,26 +97,14 @@ export default function Page() {
         footer: (props) => props.column.id,
       },
       {
-        header: "Title",
-        accessorKey: "title",
-        footer: (props) => props.column.id,
-        enableGlobalFilter: false,
-      },
-      {
-        header: "Company",
-        accessorKey: "company",
+        header: "Dealership",
+        accessorKey: "dealership",
         footer: (props) => props.column.id,
         enableGlobalFilter: false,
       },
       {
         header: "Location",
         accessorKey: "location",
-        footer: (props) => props.column.id,
-        enableGlobalFilter: false,
-      },
-      {
-        header: "Market",
-        accessorKey: "market",
         footer: (props) => props.column.id,
         enableGlobalFilter: false,
       },
@@ -248,22 +242,16 @@ export default function Page() {
           value={globalFilter}
         />
         <TextField
-          label="Company"
+          label="Dealership"
           sx={{ width: "20%" }}
-          onChange={(e) => table.getColumn("company")?.setFilterValue(e.target.value)}
-          value={table.getColumn("company")?.getFilterValue()}
+          onChange={(e) => table.getColumn("dealership")?.setFilterValue(e.target.value)}
+          value={table.getColumn("dealership")?.getFilterValue()}
         />
         <TextField
           label="Location"
           sx={{ width: "20%" }}
           onChange={(e) => table.getColumn("location")?.setFilterValue(e.target.value)}
           value={table.getColumn("location")?.getFilterValue()}
-        />
-        <TextField
-          label="Market"
-          sx={{ width: "20%" }}
-          onChange={(e) => table.getColumn("market")?.setFilterValue(e.target.value)}
-          value={table.getColumn("market")?.getFilterValue()}
         />
       </Stack>
       <TableContainer component={Paper}>
