@@ -1,4 +1,17 @@
-import { CreateUserDto, UserDto } from "@/type/user";
+import { AdminLoginDto, CreateUserDto, UserDto } from "@/type/user";
+
+export async function adminLogin(data: AdminLoginDto) {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/user/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  const isValid = await res.json();
+
+  return isValid;
+}
 
 export async function createUser(data: CreateUserDto) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/user`, {

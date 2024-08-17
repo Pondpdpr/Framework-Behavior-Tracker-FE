@@ -161,3 +161,11 @@ export const UserFields = [
     required: true,
   },
 ];
+
+export type AdminLoginDto = {
+  password: string;
+};
+
+export type AdminLoginResponseDto = {
+  isVaild: boolean;
+};

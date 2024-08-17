@@ -1,16 +1,22 @@
 "use client";
 
+import { adminLogin } from "@/api/user";
 import { AdminAppBar } from "@/component/adminAppbar";
+import { AdminLoginDto } from "@/type/user";
 import { Button, Container, Modal, Stack, TextField, Typography } from "@mui/material";
+import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const loginMutation = useMutation({
+    mutationFn: (newData: AdminLoginDto) => adminLogin(newData),
+    onSuccess: (data) => {
+      if (data.isValid) setLoggedIn(true);
+    },
+  });
+
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [password, setPassword] = useState("");
-
-  const verifyAndLogIn = () => {
-    if (password === process.env.NEXT_PUBLIC_PASSWORD) setLoggedIn(true);
-  };
 
   return (
     <>
@@ -41,7 +47,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   variant="contained"
                   color="primary"
                   onClick={() => {
-                    verifyAndLogIn();
+                    loginMutation.mutate({ password });
                   }}
                 >
                   Log in
