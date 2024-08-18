@@ -1,7 +1,7 @@
 import { QuestionDto } from "@/type/question";
 
 export async function createTemplateQuestion(data: QuestionDto) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/template-question`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}template-question`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -11,7 +11,7 @@ export async function createTemplateQuestion(data: QuestionDto) {
 }
 
 export async function updateTemplateQuestion(data: QuestionDto) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/template-question/${data.id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}template-question/${data.id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -21,7 +21,7 @@ export async function updateTemplateQuestion(data: QuestionDto) {
 }
 
 export async function deleteTemplateQuestion(data: QuestionDto) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/template-question/${data.id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}template-question/${data.id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -31,7 +31,7 @@ export async function deleteTemplateQuestion(data: QuestionDto) {
 }
 
 export async function getTemplateQuestion(): Promise<QuestionDto[]> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/template-question`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}template-question`, {
     method: "GET",
     cache: "no-store",
     headers: {

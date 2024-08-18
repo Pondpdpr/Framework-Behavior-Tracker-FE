@@ -1,7 +1,7 @@
 import { AdminLoginDto, CreateUserDto, UserDto } from "@/type/user";
 
 export async function adminLogin(data: AdminLoginDto) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/user/login`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}user/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -14,7 +14,7 @@ export async function adminLogin(data: AdminLoginDto) {
 }
 
 export async function createUser(data: CreateUserDto) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/user`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}user`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -24,7 +24,7 @@ export async function createUser(data: CreateUserDto) {
 }
 
 export async function updateUser(data: UserDto) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/user/${data.id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}user/${data.id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -34,7 +34,7 @@ export async function updateUser(data: UserDto) {
 }
 
 export async function deleteUser(userIds: number[]) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/user`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}user`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -44,7 +44,7 @@ export async function deleteUser(userIds: number[]) {
 }
 
 export async function getUser(): Promise<UserDto[]> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/user`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}user`, {
     method: "GET",
     cache: "no-store",
     headers: {

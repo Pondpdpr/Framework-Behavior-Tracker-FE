@@ -1,5 +1,5 @@
 export async function sendRule(ruleId: number) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/email/rule/${ruleId}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}email/rule/${ruleId}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -8,7 +8,7 @@ export async function sendRule(ruleId: number) {
 }
 
 export async function sendDaily(data: { users?: number[] }) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/email/daily-mail`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}email/daily-mail`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -18,7 +18,7 @@ export async function sendDaily(data: { users?: number[] }) {
 }
 
 export async function sendReminder(data: { users?: number[] }) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/email/reminder`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}email/reminder`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -1,7 +1,7 @@
 import { FormApiDto, ResponseDto } from "@/type/form";
 
 export async function createResponse(token: string, data: ResponseDto) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/response/${token}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}response/${token}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -12,7 +12,7 @@ export async function createResponse(token: string, data: ResponseDto) {
 
 export async function getForm(token: string): Promise<FormApiDto> {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/form/${token}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}form/${token}`, {
       method: "GET",
       cache: "no-store",
       headers: {

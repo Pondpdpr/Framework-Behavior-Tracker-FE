@@ -1,7 +1,7 @@
 import { RuleDto, RuleQueryDto } from "@/type/rule";
 
 export async function createRule(data: RuleDto) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/rule`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}rule`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -11,7 +11,7 @@ export async function createRule(data: RuleDto) {
 }
 
 export async function updateRule(data: RuleDto) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/rule/${data.id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}rule/${data.id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -21,7 +21,7 @@ export async function updateRule(data: RuleDto) {
 }
 
 export async function deleteRule(data: RuleDto) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/rule/${data.id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_HOST}rule/${data.id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export async function deleteRule(data: RuleDto) {
 
 export async function getRule(params?: RuleQueryDto): Promise<RuleDto[]> {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_HOST}/rule?` +
+    `${process.env.NEXT_PUBLIC_BACKEND_HOST}rule?` +
       new URLSearchParams({
         isReminder: params?.isReminder === undefined ? "" : params.isReminder.toString(),
       }).toString(),
