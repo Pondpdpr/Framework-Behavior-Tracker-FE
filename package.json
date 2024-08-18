@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "@emotion/cache": "^11.11.0",
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
     "@hookform/resolvers": "^3.9.0",
     "@mui/icons-material": "^5.16.7",
+    "@mui/material": "^5.16.7",
     "@mui/material-nextjs": "^5.15.11",
     "@tanstack/react-query": "^5.51.21",
     "@tanstack/react-table": "^8.20.1",
