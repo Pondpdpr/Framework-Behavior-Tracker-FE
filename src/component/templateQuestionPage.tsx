@@ -18,7 +18,7 @@ export default function TemplateQuestionPage() {
     <Container sx={{ py: "50px", display: "flex", flexDirection: "column", gap: "8px" }}>
       <Stack spacing={7} alignItems={"flex-end"}>
         {questions?.map((question, index) => (
-          <QuestionCard key={question?.id} label={`Question ${index}`} data={question} />
+          <QuestionCard key={question?.id} label={`Question ${index + 1}`} data={question} />
         ))}
         {isCreating ? (
           <QuestionCard
