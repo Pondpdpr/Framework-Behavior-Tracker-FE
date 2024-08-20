@@ -60,7 +60,7 @@ export default function Page() {
   };
 
   const renderForm = () => (
-    <Stack useFlexGap alignContent={"center"} padding={"0px 24px 0px 24px"} spacing={4}>
+    <Stack useFlexGap alignContent={"center"} spacing={2}>
       <Stack alignContent={"center"} padding={"0px 24px 0px 24px"} spacing={1}>
         <Typography variant="h1">Frontline Tracker</Typography>
         <Typography variant="body2">{today}</Typography>
@@ -72,8 +72,8 @@ export default function Page() {
         <Typography variant="body2">เช็คสิ่งที่ทำในวันนี้ แล้วส่งฟอร์มเมื่อเลิกงาน</Typography>
       </Stack>
       <Divider sx={{ borderWidth: "1px" }} />
-      <Stack spacing={2} padding={"8px"}>
-        <Stack spacing={2} padding={2}>
+      <Stack spacing={2} paddingX={4}>
+        <Stack spacing={2}>
           <Stack direction="row" spacing={5} height={"24px"}>
             <Box width={"60%"} />
             <Stack direction="row" justifyContent={"space-between"} width="40%">
@@ -100,25 +100,32 @@ export default function Page() {
             </Stack>
           </Stack>
         </Stack>
-        <Stack spacing={2} padding={2}>
+        <Stack spacing={2}>
           {data?.form?.questions.map((question) => (
-            <Stack key={question.id} direction="row" spacing={5} sx={{ alignItems: "center" }}>
-              <Typography variant="body1" width={"60%"} sx={{ wordBreak: "break-all", verticalAlign: "middle" }}>
-                {question.question}
-              </Typography>
-              <Stack direction="row" justifyContent={"space-between"} width="40%">
-                <Radio
-                  sx={{ width: "45%" }}
-                  checked={answers.answers?.find((answer) => answer.questionId === question.id)?.answer === true}
-                  onClick={() => onClick(question.id, true)}
-                />
-                <Radio
-                  sx={{ width: "45%" }}
-                  checked={answers.answers?.find((answer) => answer.questionId === question.id)?.answer === false}
-                  onClick={() => onClick(question.id, false)}
-                />
+            <>
+              <Stack key={question.id} direction="row" spacing={5} sx={{ alignItems: "center" }}>
+                <Typography variant="body1" width={"60%"} sx={{ verticalAlign: "middle" }}>
+                  {question.question}
+                </Typography>
+                <Stack direction="row" justifyContent={"space-between"} width="40%">
+                  <Radio
+                    sx={{ width: "45%", color: "primary.main" }}
+                    checked={answers.answers?.find((answer) => answer.questionId === question.id)?.answer === true}
+                    onClick={() => onClick(question.id, true)}
+                  />
+                  <Radio
+                    sx={{
+                      width: "45%",
+                      "&.Mui-checked": {
+                        color: "secondary.dark",
+                      },
+                    }}
+                    checked={answers.answers?.find((answer) => answer.questionId === question.id)?.answer === false}
+                    onClick={() => onClick(question.id, false)}
+                  />
+                </Stack>
               </Stack>
-            </Stack>
+            </>
           ))}
         </Stack>
       </Stack>
@@ -129,6 +136,7 @@ export default function Page() {
         <Button
           variant="contained"
           color="primary"
+          disabled={!!answers.answers?.find((answer) => answer.answer === undefined)}
           onClick={() => {
             createMutation.mutate(answers);
             setSubmitted(true);
