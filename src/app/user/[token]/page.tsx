@@ -65,7 +65,9 @@ export default function Page() {
       <Stack spacing={4}>
         <Stack alignContent={"center"} paddingX={2} spacing={1}>
           <Typography variant="h1">Frontline Tracker</Typography>
-          <Typography variant="body2">{today}</Typography>
+          <Typography variant="body2" sx={{ fontSize: "1rem" }}>
+            {today}
+          </Typography>
         </Stack>
         <Stack alignContent={"center"} paddingX={2} spacing={1}>
           <Typography color={"primary"} variant="h2">

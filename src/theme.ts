@@ -35,14 +35,14 @@ const theme = createTheme({
       fontWeight: "bold",
     },
     body1: {
-      fontSize: "1rem",
+      fontSize: "1.25rem",
       fontWeight: "bold",
     },
     body2: {
-      fontSize: "1rem",
+      fontSize: "1.25rem",
     },
     button: {
-      fontSize: "1rem",
+      fontSize: "1.25rem",
       fontWeight: "bold",
     },
   },
