@@ -1,9 +1,10 @@
 "use client";
 
 import { createResponse, getForm } from "@/api/form";
+import { Footer } from "@/component/footer";
 import { ResponseDto } from "@/type/form";
 import { ScubaDiving, ThumbUp } from "@mui/icons-material";
-import { Box, Button, Container, Divider, Link, Radio, Stack, Typography } from "@mui/material";
+import { Box, Button, Container, Divider, Radio, Stack, Typography } from "@mui/material";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import Image from "next/image";
 import { useParams } from "next/navigation";
@@ -62,11 +63,11 @@ export default function Page() {
   const renderForm = () => (
     <Stack useFlexGap alignContent={"center"} spacing={2}>
       <Stack spacing={4}>
-        <Stack alignContent={"center"} padding={"0px 24px"} spacing={1}>
+        <Stack alignContent={"center"} paddingX={2} spacing={1}>
           <Typography variant="h1">Frontline Tracker</Typography>
           <Typography variant="body2">{today}</Typography>
         </Stack>
-        <Stack alignContent={"center"} padding={"0px 24px"} spacing={1}>
+        <Stack alignContent={"center"} paddingX={2} spacing={1}>
           <Typography color={"primary"} variant="h2">
             {"สวัสดี " + data?.user?.thaiFirstName}
           </Typography>
@@ -74,7 +75,7 @@ export default function Page() {
         </Stack>
       </Stack>
       <Divider sx={{ borderWidth: "1px" }} />
-      <Stack spacing={2} paddingX={4}>
+      <Stack spacing={2} paddingX={2}>
         <Stack spacing={2}>
           <Stack direction="row" spacing={5} height={"24px"}>
             <Box width={"60%"} />
@@ -132,7 +133,7 @@ export default function Page() {
           ))}
         </Stack>
       </Stack>
-      <Stack direction="row" justifyContent="flex-end" spacing={2} padding={"0px 24px"}>
+      <Stack direction="row" justifyContent="flex-end" spacing={2} paddingX={2}>
         <Button variant="text" color="secondary" sx={{ textDecoration: "underline" }} onClick={() => resetAnswer()}>
           ล้างฟอร์ม
         </Button>
@@ -179,7 +180,7 @@ export default function Page() {
         {!isLoading &&
           (!submitted ? (
             error ? (
-              <Typography variant="h1" sx={{ textAlign: "center" }} padding={"0px 24px 0px 24px"}>
+              <Typography variant="h1" sx={{ textAlign: "center" }} paddingX={2}>
                 {errorCode === "500" ? "Invalid form token" : "ฟอร์มนี้หมดอายุแล้ว กรุณาเปิดฟอร์มล่าสุดในเมลของท่าน"}
               </Typography>
             ) : (
@@ -191,30 +192,7 @@ export default function Page() {
             </Typography>
           ))}
       </Container>
-      <Box
-        width={"100%"}
-        sx={{
-          backgroundColor: "#E5E5E5",
-          display: "flex",
-          padding: "16px 24px",
-        }}
-      >
-        <Stack alignItems={"flex-start"} spacing={1}>
-          <Typography variant="body1">ติดปัญหาหรือมีข้อสงสัย หาคำตอบได้ที่:</Typography>
-          <Link href="/faq" variant="body1" color="secondary.dark" sx={{ textDecoration: "underline" }}>
-            คำถามที่พบบ่อย
-          </Link>
-          <Link
-            component={"button"}
-            variant="body1"
-            color="secondary.dark"
-            sx={{ textDecoration: "underline" }}
-            onClick={() => window.open(process.env.NEXT_PUBLIC_CONTACT_LINK)}
-          >
-            ติดต่อสอบถาม
-          </Link>
-        </Stack>
-      </Box>
+      <Footer />
     </>
   );
 }

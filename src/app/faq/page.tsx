@@ -1,6 +1,7 @@
 "use client";
 
-import { Box, Container, Divider, Link, Stack, Typography } from "@mui/material";
+import { Footer } from "@/component/footer";
+import { Box, Container, Divider, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 
 const FAQ = [
@@ -38,10 +39,10 @@ export default function Page() {
         }}
       >
         <Stack useFlexGap alignContent={"center"} spacing={4}>
-          <Typography variant="h1" padding={"0px 24px"}>
+          <Typography variant="h1" paddingX={2}>
             FAQ
           </Typography>
-          <Stack alignContent={"center"} padding={"0px 24px"}>
+          <Stack alignContent={"center"} paddingX={2}>
             <Typography color={"primary"} variant="h2">
               คำถามที่พบบ่อย
             </Typography>
@@ -49,37 +50,14 @@ export default function Page() {
           </Stack>
           <Divider sx={{ borderWidth: "1px" }} />
           {FAQ.map((faq) => (
-            <Stack key={faq.question} spacing={2} padding={"0px 24px"}>
+            <Stack key={faq.question} spacing={2} paddingX={2}>
               <Typography variant="h2">{faq.question}</Typography>
               <Typography variant="body2">{faq.answer}</Typography>
             </Stack>
           ))}
         </Stack>
       </Container>
-      <Box
-        width={"100%"}
-        sx={{
-          backgroundColor: "#E5E5E5",
-          display: "flex",
-          padding: "16px 24px",
-        }}
-      >
-        <Stack alignItems={"flex-start"} spacing={1}>
-          <Typography variant="body1">ติดปัญหาหรือมีข้อสงสัย หาคำตอบได้ที่:</Typography>
-          <Link href="/faq" variant="body1" color="secondary.dark" sx={{ textDecoration: "underline" }}>
-            คำถามที่พบบ่อย
-          </Link>
-          <Link
-            component={"button"}
-            variant="body1"
-            color="secondary.dark"
-            sx={{ textDecoration: "underline" }}
-            onClick={() => window.open(process.env.NEXT_PUBLIC_CONTACT_LINK)}
-          >
-            ติดต่อสอบถาม
-          </Link>
-        </Stack>
-      </Box>
+      <Footer />
     </>
   );
 }
