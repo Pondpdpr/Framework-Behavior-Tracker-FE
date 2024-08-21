@@ -62,11 +62,11 @@ export default function Page() {
   const renderForm = () => (
     <Stack useFlexGap alignContent={"center"} spacing={2}>
       <Stack spacing={4}>
-        <Stack alignContent={"center"} padding={"0px 24px 0px 24px"} spacing={1}>
+        <Stack alignContent={"center"} padding={"0px 24px"} spacing={1}>
           <Typography variant="h1">Frontline Tracker</Typography>
           <Typography variant="body2">{today}</Typography>
         </Stack>
-        <Stack alignContent={"center"} padding={"0px 24px 0px 24px"} spacing={1}>
+        <Stack alignContent={"center"} padding={"0px 24px"} spacing={1}>
           <Typography color={"primary"} variant="h2">
             {"สวัสดี " + data?.user?.thaiFirstName}
           </Typography>
@@ -79,7 +79,7 @@ export default function Page() {
           <Stack direction="row" spacing={5} height={"24px"}>
             <Box width={"60%"} />
             <Stack direction="row" justifyContent={"space-between"} width="40%">
-              <ThumbUp sx={{ width: "45%", color: "#145DFB" }} />
+              <ThumbUp sx={{ width: "45%", color: "primary.main" }} />
               <ScubaDiving sx={{ width: "45%" }} />
             </Stack>
           </Stack>
@@ -97,7 +97,7 @@ export default function Page() {
           <Stack direction="row" spacing={5}>
             <Box width={"60%"} />
             <Stack direction="row" justifyContent={"space-between"} width="40%">
-              <Divider sx={{ width: "45%", borderColor: "#145DFB" }} />
+              <Divider sx={{ width: "45%", borderColor: "primary.main" }} />
               <Divider sx={{ width: "45%" }} />
             </Stack>
           </Stack>
@@ -106,7 +106,7 @@ export default function Page() {
           {data?.form?.questions.map((question, index) => (
             <>
               <Stack key={question.id} direction="row" spacing={5} sx={{ alignItems: "center" }}>
-                <Typography variant="body1" width={"60%"} sx={{ verticalAlign: "middle" }}>
+                <Typography variant="body2" width={"60%"} sx={{ verticalAlign: "middle", fontSize: "1.25rem" }}>
                   {question.question}
                 </Typography>
                 <Stack direction="row" justifyContent={"space-between"} width="40%">
@@ -132,7 +132,7 @@ export default function Page() {
           ))}
         </Stack>
       </Stack>
-      <Stack direction="row" justifyContent="flex-end" spacing={2} padding={"0px 24px 0px 24px"}>
+      <Stack direction="row" justifyContent="flex-end" spacing={2} padding={"0px 24px"}>
         <Button variant="text" color="secondary" sx={{ textDecoration: "underline" }} onClick={() => resetAnswer()}>
           ล้างฟอร์ม
         </Button>
@@ -179,7 +179,7 @@ export default function Page() {
         {!isLoading &&
           (!submitted ? (
             error ? (
-              <Typography variant="h1" sx={{ textAlign: "center" }}>
+              <Typography variant="h1" sx={{ textAlign: "center" }} padding={"0px 24px 0px 24px"}>
                 {errorCode === "500" ? "Invalid form token" : "ฟอร์มนี้หมดอายุแล้ว กรุณาเปิดฟอร์มล่าสุดในเมลของท่าน"}
               </Typography>
             ) : (
@@ -201,13 +201,13 @@ export default function Page() {
       >
         <Stack alignItems={"flex-start"} spacing={1}>
           <Typography variant="body1">ติดปัญหาหรือมีข้อสงสัย หาคำตอบได้ที่:</Typography>
-          <Link href="/faq" variant="body1" color="secondary" sx={{ textDecoration: "underline" }}>
+          <Link href="/faq" variant="body1" color="secondary.dark" sx={{ textDecoration: "underline" }}>
             คำถามที่พบบ่อย
           </Link>
           <Link
             component={"button"}
             variant="body1"
-            color="secondary"
+            color="secondary.dark"
             sx={{ textDecoration: "underline" }}
             onClick={() => window.open(process.env.NEXT_PUBLIC_CONTACT_LINK)}
           >
