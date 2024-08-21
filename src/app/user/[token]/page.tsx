@@ -65,7 +65,7 @@ export default function Page() {
       <Stack spacing={4}>
         <Stack alignContent={"center"} paddingX={2} spacing={1}>
           <Typography variant="h1">Frontline Tracker</Typography>
-          <Typography variant="body2" sx={{ fontSize: "1rem" }}>
+          <Typography variant="body2" sx={{ fontSize: "1rem" }} color="secondary.dark">
             {today}
           </Typography>
         </Stack>
@@ -89,10 +89,15 @@ export default function Page() {
           <Stack direction="row" spacing={5}>
             <Box width={"60%"} />
             <Stack direction="row" justifyContent={"space-between"} width="40%">
-              <Typography variant="body1" color={"primary"} width={"45%"} sx={{ textAlign: "center" }}>
+              <Typography
+                variant="body1"
+                color={"primary"}
+                width={"45%"}
+                sx={{ textAlign: "center", fontSize: "1rem" }}
+              >
                 {`I've got it`}
               </Typography>
-              <Typography variant="body1" width={"45%"} sx={{ textAlign: "center" }}>
+              <Typography variant="body1" width={"45%"} sx={{ textAlign: "center", fontSize: "1rem" }}>
                 {`Deeper dive, please`}
               </Typography>
             </Stack>
