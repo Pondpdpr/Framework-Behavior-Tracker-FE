@@ -42,7 +42,7 @@ export default function Page() {
           <Typography variant="h1" paddingX={2}>
             FAQ
           </Typography>
-          <Stack alignContent={"center"} paddingX={2}>
+          <Stack alignContent={"center"} paddingX={2} spacing={1}>
             <Typography color={"primary"} variant="h2">
               คำถามที่พบบ่อย
             </Typography>
