@@ -25,7 +25,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "IBM Plex Sans Thai",
+    // fontFamily: "IBM Plex Sans Thai",
     h1: {
       fontSize: "2rem",
       fontWeight: "bold",

@@ -61,15 +61,17 @@ export default function Page() {
 
   const renderForm = () => (
     <Stack useFlexGap alignContent={"center"} spacing={2}>
-      <Stack alignContent={"center"} padding={"0px 24px 0px 24px"} spacing={1}>
-        <Typography variant="h1">Frontline Tracker</Typography>
-        <Typography variant="body2">{today}</Typography>
-      </Stack>
-      <Stack alignContent={"center"} padding={"0px 24px 0px 24px"} spacing={1}>
-        <Typography color={"primary"} variant="h2">
-          {"สวัสดี " + data?.user?.thaiFirstName}
-        </Typography>
-        <Typography variant="body2">เช็คสิ่งที่ทำในวันนี้ แล้วส่งฟอร์มเมื่อเลิกงาน</Typography>
+      <Stack spacing={4}>
+        <Stack alignContent={"center"} padding={"0px 24px 0px 24px"} spacing={1}>
+          <Typography variant="h1">Frontline Tracker</Typography>
+          <Typography variant="body2">{today}</Typography>
+        </Stack>
+        <Stack alignContent={"center"} padding={"0px 24px 0px 24px"} spacing={1}>
+          <Typography color={"primary"} variant="h2">
+            {"สวัสดี " + data?.user?.thaiFirstName}
+          </Typography>
+          <Typography variant="body2">เช็คสิ่งที่ทำในวันนี้ แล้วส่งฟอร์มเมื่อเลิกงาน</Typography>
+        </Stack>
       </Stack>
       <Divider sx={{ borderWidth: "1px" }} />
       <Stack spacing={2} paddingX={4}>
@@ -101,7 +103,7 @@ export default function Page() {
           </Stack>
         </Stack>
         <Stack spacing={2}>
-          {data?.form?.questions.map((question) => (
+          {data?.form?.questions.map((question, index) => (
             <>
               <Stack key={question.id} direction="row" spacing={5} sx={{ alignItems: "center" }}>
                 <Typography variant="body1" width={"60%"} sx={{ verticalAlign: "middle" }}>
@@ -125,6 +127,7 @@ export default function Page() {
                   />
                 </Stack>
               </Stack>
+              {index + 1 !== data?.form?.questions.length && <Divider />}
             </>
           ))}
         </Stack>
