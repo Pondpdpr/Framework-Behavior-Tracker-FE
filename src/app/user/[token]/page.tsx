@@ -206,7 +206,7 @@ export default function Page() {
             variant="body1"
             color="secondary"
             sx={{ textDecoration: "underline" }}
-            onClick={() => window.open("https://tally.so/r/n0LJMQ")}
+            onClick={() => window.open(process.env.NEXT_PUBLIC_CONTACT_LINK)}
           >
             ติดต่อสอบถาม
           </Link>
