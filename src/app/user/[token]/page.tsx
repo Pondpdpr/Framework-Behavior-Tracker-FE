@@ -23,7 +23,13 @@ export default function Page() {
 
   const createMutation = useMutation({
     mutationFn: (newData: ResponseDto) => createResponse(params.token as string, newData),
-    onSuccess: async () => await queryClient.refetchQueries({ queryKey: ["rule"] }),
+    onSuccess: async () => {
+      await queryClient.refetchQueries({ queryKey: ["rule"] });
+      setSubmitted(true);
+    },
+    onError: () => {
+      alert('fail to send form')
+    }
   });
 
   const today = useMemo(() => {
@@ -150,7 +156,6 @@ export default function Page() {
           disabled={!!answers.answers?.find((answer) => answer.answer === undefined)}
           onClick={() => {
             createMutation.mutate(answers);
-            setSubmitted(true);
           }}
         >
           ส่ง
@@ -195,7 +200,7 @@ export default function Page() {
             )
           ) : (
             <Typography variant="h1" sx={{ textAlign: "center" }}>
-              ส่งฟอร์มเรียบร้อย
+              เยี่ยมเลย! เราได้รับข้อมูลจาก Frontline Tracker ของคุนแล้ว ขอบคุณมากสำหรับวันนี้
             </Typography>
           ))}
       </Container>
