@@ -24,6 +24,7 @@ export enum BehaviorType {
   EYE_CONTACT = "B3",
   TONE_OF_VOICE = "B4",
   ACTIVE_MINDFUL_LISTENING = "B5",
+  TESTING = "X",
 }
 
 export const BehaviorOption = [
@@ -86,5 +87,9 @@ export const BehaviorOption = [
   {
     value: BehaviorType.ACTIVE_MINDFUL_LISTENING,
     label: "Active/Mindful Listening",
+  },
+  {
+    value: BehaviorType.TESTING,
+    label: "Testing System",
   },
 ];
