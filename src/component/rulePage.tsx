@@ -147,10 +147,13 @@ export function RulePage({
           onClick={() => {
             if (info?.rule === RuleType.TO_ALL) {
               sendAllMutation.mutate({});
+              alert("email sent");
             } else if (info?.rule === RuleType.REMINDER) {
               sendReminderMutation.mutate({});
+              alert("email sent");
             } else {
               sendRuleMutation.mutate(info?.id);
+              alert("email sent");
             }
           }}
         >
