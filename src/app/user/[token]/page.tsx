@@ -28,8 +28,8 @@ export default function Page() {
       setSubmitted(true);
     },
     onError: () => {
-      alert('fail to send form')
-    }
+      alert("fail to send form");
+    },
   });
 
   const today = useMemo(() => {
@@ -199,7 +199,7 @@ export default function Page() {
               renderForm()
             )
           ) : (
-            <Typography variant="h1" sx={{ textAlign: "center" }}>
+            <Typography variant="h2" sx={{ textAlign: "center", padding: "0px 24px" }}>
               เยี่ยมเลย! เราได้รับข้อมูลจาก Frontline Tracker ของคุนแล้ว ขอบคุณมากสำหรับวันนี้
             </Typography>
           ))}
