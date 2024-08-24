@@ -200,7 +200,7 @@ export default function Page() {
             )
           ) : (
             <Typography variant="h2" sx={{ textAlign: "center", padding: "0px 24px" }}>
-              เยี่ยมเลย! เราได้รับข้อมูลจาก Frontline Tracker ของคุนแล้ว ขอบคุณมากสำหรับวันนี้
+              เยี่ยมเลย! เราได้รับข้อมูลจาก Frontline Tracker ของคุณแล้ว ขอบคุณมากสำหรับวันนี้
             </Typography>
           ))}
       </Container>
