@@ -166,6 +166,7 @@ export default function Page() {
             disabled={Object.keys(rowSelection).length === 0}
             onClick={() => {
               sendAllMutation.mutate({ users: table.getSelectedRowModel().flatRows.map((row) => +row.id) });
+              alert("email sent");
             }}
           >
             Send Daily
@@ -175,6 +176,7 @@ export default function Page() {
             disabled={Object.keys(rowSelection).length === 0}
             onClick={() => {
               sendReminderMutation.mutate({ users: table.getSelectedRowModel().flatRows.map((row) => +row.id) });
+              alert("email sent");
             }}
           >
             Send Reminder
