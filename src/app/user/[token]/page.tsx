@@ -193,7 +193,7 @@ export default function Page() {
           (!submitted ? (
             error ? (
               <Typography variant="h1" sx={{ textAlign: "center" }} paddingX={2}>
-                {errorCode === "500" ? "Invalid form token" : "ฟอร์มนี้หมดอายุแล้ว กรุณาเปิดฟอร์มล่าสุดในเมลของท่าน"}
+                {errorCode === "500" ? "Invalid form token" : "ฟอร์มนี้หมดอายุแล้ว กรุณาเปิดฟอร์มจากอีเมลล่าสุดของคุณ"}
               </Typography>
             ) : (
               renderForm()
