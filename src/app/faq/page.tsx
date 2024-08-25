@@ -87,15 +87,18 @@ export default function Page() {
             <Typography variant="body2">คำตอบสำหรับคำถามที่พบบ่อยเกี่ยวกับ Frontline Tracker</Typography>
           </Stack>
           <Divider sx={{ borderWidth: "1px" }} />
-          {FAQ.map((faq) => (
-            <Stack key={faq.question} spacing={2} paddingX={2}>
-              <Typography variant="h2" sx={{ whiteSpace: "pre-wrap" }}>
-                {faq.question}
-              </Typography>
-              <Typography variant="body2" sx={{ whiteSpace: "pre-wrap" }}>
-                {faq.answer}
-              </Typography>
-            </Stack>
+          {FAQ.map((faq, index) => (
+            <>
+              <Stack key={faq.question} spacing={2} paddingX={2}>
+                <Typography variant="h2" sx={{ whiteSpace: "pre-wrap" }}>
+                  {faq.question}
+                </Typography>
+                <Typography variant="body2" sx={{ whiteSpace: "pre-wrap" }}>
+                  {faq.answer}
+                </Typography>
+              </Stack>
+              {index + 1 !== FAQ.length && <Divider sx={{ borderWidth: "1px" }} />}
+            </>
           ))}
         </Stack>
       </Container>
