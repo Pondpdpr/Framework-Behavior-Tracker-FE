@@ -6,6 +6,10 @@ import { useState } from "react";
 
 const ExportOptions = [
   {
+    label: "Responses CheckBox",
+    value: "response-checkbox",
+  },
+  {
     label: "Responses",
     value: "response",
   },
