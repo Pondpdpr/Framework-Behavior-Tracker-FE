@@ -330,7 +330,7 @@ export default function Page() {
         </Table>
       </TableContainer>
       <TablePagination
-        count={rows?.length || 0}
+        count={table.getRowCount() || 0}
         page={pagination.pageIndex}
         onPageChange={handleChangePage}
         rowsPerPage={pagination.pageSize}
