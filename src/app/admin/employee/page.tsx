@@ -22,6 +22,7 @@ import {
   TableCell,
   TableContainer,
   TableHead,
+  TablePagination,
   TableRow,
   TextField,
   Typography,
@@ -121,6 +122,10 @@ export default function Page() {
   const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
   const [isEditModalOpen, setEditModalOpen] = useState(false);
   const [EditModalUser, setEditModalUser] = useState<UserDto>();
+  const [pagination, setPagination] = useState({
+    pageIndex: 0,
+    pageSize: 25,
+  });
 
   const table = useReactTable({
     data: rows,
@@ -129,12 +134,13 @@ export default function Page() {
       rowSelection,
       columnFilters,
       globalFilter,
+      pagination,
     },
     getRowId: (originalRow) => originalRow?.id.toString(),
-    manualPagination: true,
     onRowSelectionChange: setRowSelection,
     onColumnFiltersChange: setColumnFilters,
     onGlobalFilterChange: setGlobalFilter,
+    onPaginationChange: setPagination,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
@@ -146,6 +152,14 @@ export default function Page() {
       deleteMutation.mutate(table.getSelectedRowModel().flatRows.map((row) => +row.id));
     };
   }, [deleteMutation, table]);
+
+  const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+    setPagination({ ...pagination, pageIndex: newPage });
+  };
+
+  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setPagination({ pageIndex: 0, pageSize: parseInt(event.target.value, 10) });
+  };
 
   return (
     <Stack padding={4} spacing={4}>
@@ -315,6 +329,13 @@ export default function Page() {
           </TableBody>
         </Table>
       </TableContainer>
+      <TablePagination
+        count={rows?.length || 0}
+        page={pagination.pageIndex}
+        onPageChange={handleChangePage}
+        rowsPerPage={pagination.pageSize}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
     </Stack>
   );
 }
