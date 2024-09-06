@@ -131,6 +131,7 @@ export default function Page() {
       globalFilter,
     },
     getRowId: (originalRow) => originalRow?.id.toString(),
+    manualPagination: true,
     onRowSelectionChange: setRowSelection,
     onColumnFiltersChange: setColumnFilters,
     onGlobalFilterChange: setGlobalFilter,
