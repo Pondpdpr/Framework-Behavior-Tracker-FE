@@ -89,7 +89,7 @@ export default function Page() {
       {
         header: "Full Name",
         id: "fullName",
-        accessorFn: (row) => `${row.firstName} ${row.lastName}`,
+        accessorFn: (row) => `${row.thaiFirstName} ${row.thaiLastName}`,
         footer: (props) => props.column.id,
       },
       {
