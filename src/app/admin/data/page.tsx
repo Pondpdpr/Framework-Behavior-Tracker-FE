@@ -17,6 +17,10 @@ const ExportOptions = [
     label: "Users",
     value: "user",
   },
+  {
+    label: `Latest Form's Response`,
+    value: "latest-form-response",
+  },
 ];
 
 export default function Page() {
